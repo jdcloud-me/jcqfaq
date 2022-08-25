@@ -102,7 +102,21 @@ The heart beat service for the channel localAddress: 10.0.0.3:44452, remoteAddre
 
 3. 确认代码中填入的接入点和topic名称，在控制台topic详情里是对应的。
 
-   ![image-20210518181642505](images/image-20210518181642505.png)
+   ![image-20220825110357393](images/image-20220825110357393.png)
+
+4. 对于Default命名空间的Topic，且该Topic的所属账号是调用者本身，可直接填写Topic名称，也可填写拼接后的Topic。对于非Default命名空间的Topic，或者该Topic的所属账号不是调用者本身(主主授权)，则需要以`$`作为分隔符拼接Topic所属账号的ID、Namespace、Topic名称。
+
+   ```
+   示例：
+   topic所属主账户id:568091687201
+   默认namespace：Default
+   topic：topic_test
+   topic所属账号568091687201请求topic名称填topic_test
+   授权账户910681515243的topic名称要拼接上面三个参数，分隔符$：568091687201$Default$topic_test
+   topic所属主账户id(tenantId)和namespace可以在JCQ控制台Topic详情页获取。
+   ```
+
+   ![image-20220825110156715](images/image-20220825110156715.png)
 
 ### 4.4 报错订阅不存在
 
@@ -118,4 +132,8 @@ The heart beat service for the channel localAddress: 10.0.0.3:44452, remoteAddre
 ### 4.6 如何判断消费签名是否正确
 
 使用工具：https://github.com/xinyulu3344/jcqsign 。该工具会返回签名计算过程中排序后的key、signSource和最终的签名
+
+### 4.7 topic无法删除
+
+只有topic所有者有权限删除topic。如果是授权订阅的topic，那么订阅方是没有权限删除topic的，需要联系topic所有者删除。对于开普勒、云交易、宙斯等用户，可以到 https://open.jd.com/home/home#/support/ask 提交工单咨询。
 
