@@ -104,7 +104,7 @@ The heart beat service for the channel localAddress: 10.0.0.3:44452, remoteAddre
 
    ![image-20220825110357393](images/image-20220825110357393.png)
 
-4. 对于Default命名空间的Topic，且该Topic的所属账号是调用者本身，可直接填写Topic名称，也可填写拼接后的Topic。对于非Default命名空间的Topic，或者该Topic的所属账号不是调用者本身(主主授权)，则需要以`$`作为分隔符拼接Topic所属账号的ID、Namespace、Topic名称。
+4. 对于Default命名空间的Topic，且该Topic的所属账号是调用者本身，可直接填写Topic名称，也可填写拼接后的Topic。对于非Default命名空间的Topic，或者该Topic的所属账号不是调用者本身(主主授权)，则需要以`$`作为分隔符拼接Topic所属账号的ID、Namespace、Topic名称。(只适用于公有云topic，云鼎topic不适用)
 
    ```
    示例：
